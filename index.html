@@ -1,47 +1,79 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const themeToggle = document.querySelector('.theme-toggle');
-    const body = document.body;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Student Art Association</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="bg-line"></div>
+        <div class="bg-line"></div>
+        <div class="bg-line"></div>
+    </div>
 
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
-        themeToggle.innerHTML = body.classList.contains('dark-theme') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-    });
+    <header>
+        <nav>
+            <div class="logo"><i class="fas fa-palette"></i> The Student Art Association</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#join">Join</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </nav>
+    </header>
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    <main>
+        <section id="home" class="banner">
+            <div class="banner-content">
+                <h1 class="animated-text">Our Club!</h1>
+                <p class="animated-text">A  community of student artists fostering creativity and collaboration.</p>
+                <a href="#join" class="cta-button animated-text">Join Us <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="banner-art">
+                <div class="art-piece" style="background-image: url('https://via.placeholder.com/400x300?text=Art');"></div>
+                <div class="art-piece" style="background-image: url('https://via.placeholder.com/350x400?text=Art');"></div>
+                <div class="art-piece" style="background-image: url('https://via.placeholder.com/300x350?text=Art');"></div>
+            </div>
+        </section>
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+        <section id="about">
+            <h2><i class="fas fa-users"></i> About Us</h2>
+            <p>The Student Art Association is a club at Irvine Valley College. We provide a platform for artists to showcase their work, learn from peers, and grow together. With regular workshops and collaborative projects with other clubs, we explore the world of art.</p>
+            <div class="stats">
+            </div>
+        </section>
 
-    // Load more art items
-    const loadMoreBtn = document.getElementById('load-more');
-    const galleryGrid = document.querySelector('.gallery-grid');
-    const artItems = [
-        'https://via.placeholder.com/300x200?text=Art+5',
-        'https://via.placeholder.com/300x200?text=Art+6',
-        'https://via.placeholder.com/300x200?text=Art+7',
-        'https://via.placeholder.com/300x200?text=Art+8'
-    ];
+        <section id="gallery">
+            <h2><i class="fas fa-images"></i> Our Gallery</h2>
+            <p>Explore the diverse talents of our members:</p>
+            <div class="gallery-grid">
+                <div class="art-item" style="background-image: url('https://via.placeholder.com/300x200?text=Art+1');"></div>
+                <div class="art-item" style="background-image: url('https://via.placeholder.com/300x200?text=Art+2');"></div>
+                <div class="art-item" style="background-image: url('https://via.placeholder.com/300x200?text=Art+3');"></div>
+                <div class="art-item" style="background-image: url('https://via.placeholder.com/300x200?text=Art+4');"></div>
+            </div>
+            <button id="load-more" class="cta-button">Load More <i class="fas fa-plus"></i></button>
+        </section>
 
-    loadMoreBtn.addEventListener('click', () => {
-        artItems.forEach(item => {
-            const div = document.createElement('div');
-            div.className = 'art-item';
-            div.style.backgroundImage = `url('${item}')`;
-            galleryGrid.appendChild(div);
-        });
-        loadMoreBtn.style.display = 'none';
-    });
+        <section id="join">
+            <h2><i class="fas fa-hand-peace"></i> Become a Member</h2>
+            <p>Join us today!</p>
+            <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" class="cta-button animated-button">Sign Up <i class="fas fa-pencil-alt"></i></a>
+        </section>
+    </main>
 
-    // Art item click event (placeholder for lightbox or detail view)
-    document.querySelectorAll('.art-item').forEach(item => {
-        item.addEventListener('click', () => {
-            alert('Clicked on artwork! You can implement a lightbox or detail view here.');
-        });
-    });
-});
+    <footer>
+        <p>&copy; 2024 The Student Art Association.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
